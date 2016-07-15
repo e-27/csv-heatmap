@@ -68,22 +68,22 @@
 				complete: function(results) {
 					csv = [];
 
-					if(results.meta.fields.indexOf("weight") == -1) {
+					if(results.meta.fields.indexOf("quantity") == -1) {
 						for(idx in results["data"]) {
 							var row = results["data"][idx];
 							csv.push(new google.maps.LatLng(row["latitude"], row["longitude"]))
 						}
 					} else {
-						var max = results["data"][0]["weight"];
+						var max = results["data"][0]["quantity"];
 
 						for(idx in results["data"]) {
 							var row = results["data"][idx];
 							
-							max = Math.max(max, row["weight"]);
+							max = Math.max(max, row["quantity"]);
 
 							csv.push({
 								location: new google.maps.LatLng(row["latitude"], row["longitude"]),
-								weight: row["weight"]
+								weight: row["quantity"]
 							});
 						}
 
