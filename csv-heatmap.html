@@ -71,7 +71,7 @@
 					if(results.meta.fields.indexOf("weight") == -1) {
 						for(idx in results["data"]) {
 							var row = results["data"][idx];
-							csv.push(new google.maps.LatLng(row["lat"], row["lon"]))
+							csv.push(new google.maps.LatLng(row["latitude"], row["longitude"]))
 						}
 					} else {
 						var max = results["data"][0]["weight"];
@@ -82,7 +82,7 @@
 							max = Math.max(max, row["weight"]);
 
 							csv.push({
-								location: new google.maps.LatLng(row["lat"], row["lon"]),
+								location: new google.maps.LatLng(row["latitude"], row["longitude"]),
 								weight: row["weight"]
 							});
 						}
